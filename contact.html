@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact Form</title>
+<link rel="stylesheet" href="contact .css">
+</head>
+<body>
+
+<div class="contact-container">
+  <div class="logo">
+    <span>A</span>
+    <img src="https://cdn-icons-png.flaticon.com/512/2922/2922565.png" alt="Character" width="40" />
+    <span>K</span>
+  </div>
+
+  <div class="side-bar">
+    CONTACT ME
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" alt="Figma" width="30" />
+    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="30" />
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord" width="30" />
+  </div>
+
+  <form id="contactForm" onsubmit="return validateAndSubmit(event)"> 
+    <div class="inputs">
+      <input type="text" id="firstName" placeholder="First name"/> <input type="text" id="lastName" placeholder="Last name"/> </div>
+    <input type="email" id="email" placeholder="Your Email"/> 
+    <textarea id="message" placeholder="Your Message"></textarea> <button type="submit" id="submitButton">SEND</button> 
+  </form>
+
+</div>
+  
+<script>
+  // Функция 2: Базовая валидация формы
+  function validateForm() {
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    // Проверка на пустоту
+    if (firstName === "" || lastName === "" || email === "" || message === "") {
+      alert("Please fill in all the required fields.");
+      return false; // Форма НЕ валидна
+    }
+
+    // Проверка email (очень базовая)
+    if (!email.includes('@') || !email.includes('.')) {
+      alert("Please enter a valid email address.");
+      return false; // Форма НЕ валидна
+    }
+
+    return true; // Форма валидна
+  }
+
+  // Функция 3: Валидация + подтверждение отправки (вызывается через onsubmit)
+  function validateAndSubmit(event) {
+    // Останавливаем стандартную отправку формы
+    event.preventDefault(); 
+
+    if (validateForm()) {
+      // Если валидация успешна
+      alert("Thank you! Your message has been sent successfully!");
+      
+      // Сброс формы после успешной отправки
+      document.getElementById('contactForm').reset(); 
+      
+      // В реальном приложении здесь был бы код для отправки данных на сервер
+      // return true; // Разрешить отправку (если бы не было preventDefault)z`
+    } else {
+      // Если валидация не пройдена, alert уже сработал в validateForm
+      // return false; // Запретить отправку
+    }
+  }
+
+</script>
+</body>
+</html>

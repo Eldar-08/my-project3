@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+  body {
+    margin: 0;
+    background: #010101;
+    font-family: 'Inter', sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .contact-container {
+    width: 1440px;
+    height: 757px;
+    background: #010101;
+    border: 2px solid #0b1f49;
+    box-sizing: border-box;
+    display: flex;
+    position: relative;
+    padding: 20px;
+  }
+
+  /* Логотип вверху слева */
+  .logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 32px;
+  }
+
+  /* Слева вертикальный текст и иконки */
+  .side-bar {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    letter-spacing: 0.3em;
+    color: white;
+    font-weight: 500;
+    font-size: 18px;
+    border-right: 1px solid #555;
+    padding-right: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .side-bar svg,
+  .side-bar img {
+    margin: 20px 0;
+    filter: drop-shadow(0 0 8px #00ffff);
+  }
+
+  /* Форма */
+  form {
+    flex-grow: 1;
+    padding-left: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .inputs {
+    display: flex;
+    gap: 50px;
+    margin-bottom: 30px;
+  }
+
+  input[type="text"],
+  input[type="email"] {
+    padding: 15px 20px;
+    background: #333;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    color: white;
+    box-shadow: 0 0 15px #0f3f62;
+  }
+
+  input[type="text"] {
+    width: 37%;
+  }
+
+  /* Email — такой же ширины, как одно из полей */
+  input[type="email"] {
+    width: 80%;
+    margin-bottom: 30px;
+  }
+
+  textarea {
+    width: 80%;
+    height: 250px;
+    border-radius: 30px;
+    background: black;
+    border: none;
+    padding: 20px;
+    color: white;
+    font-size: 16px;
+    box-shadow: 0 0 30px #0f3f62;
+    resize: none;
+  }
+
+  button {
+    align-self: flex-end;
+    margin-top: 20px;
+    background: #0ff;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 40px;
+    font-weight: 700;
+    font-size: 16px;
+    color: #000;
+    cursor: pointer;
+    box-shadow: 0 0 20px #0ff;
+  }
+
+  /* Верхнее меню */
+  .top-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 30px;
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    color: white;
+    font-weight: 400;
+  }
+
+  .top-menu button {
+    top: 10;
+    background: none;
+    border: 1px solid #0ff;
+    color: white;
+    padding: 5px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    letter-spacing: 0.2em;
+  }
+
+  /* Почта справа вертикально */
+  .email-vertical {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    position: absolute;
+    right: -40px;
+    top: 100px;
+    color: white;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+  }

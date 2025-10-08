@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimal Portfolio Design</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="page-container">
+        
+        <header class="header">
+            <div class="logo">
+                <span class="logo-a">A</span>
+                <span class="logo-k">K</span>
+            </div>
+            <nav class="nav">
+                <a href="about.html">ABOUT</a>
+                <a href="project.html">PROJECTS</a>
+                <a href="contact.html" class="contact-btn">CONTACT ME</a>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <section class="hero">
+                <div class="text-content">
+                    <p class="greeting" id="greetingText">HELLO!</p> 
+                    <h1 class="title">I'M <span class="highlight">A.K.</span></h1> 
+                    <h2 class="subtitle">UI/UX DESIGNER & FRONTEND DEVELOPER</h2>
+                    <p class="description">
+                        A versatile creative professional with expertise in design, Figma and 
+                        frontend development. My passion for creativity drives me to create 
+                        visually stunning digital experiences that engage and delight users. 
+                        Let’s collaborate and bring your ideas to life!
+                    </p>
+                    <a href="#projects" class="work-btn">VIEW MY WORK</a>
+                </div>
+                <div class="image-placeholder">
+                    <img src="C:\Users\user\Desktop\Eldars\sca24a-main\images\5418022908451746618.jpg" alt="Profile Photo">
+                </div>
+            </section>
+        </main>
+
+        <aside class="side-bar">
+            <a href="#" target="_blank">FIGMA</a>
+            <a href="#" target="_blank">LINKEDIN</a>
+            <a href="#" target="_blank">DISCORD</a>
+        </aside>
+
+    </div>
+
+    <script>
+        function personalizeGreeting() {
+            const greetingElement = document.getElementById('greetingText');
+            
+            // Запрашиваем имя пользователя каждый раз
+            let inputName = prompt("Welcome! Please enter your name:");
+            
+            let userName = '';
+
+            if (inputName && inputName.trim() !== "") {
+                // Форматируем имя
+                userName = inputName.trim().charAt(0).toUpperCase() + inputName.trim().slice(1).toLowerCase();
+            }
+            
+            // Обновляем текст на странице
+            if (greetingElement) {
+                if (userName) {
+                    // Если имя пользователя введено, добавляем его после HELLO!
+                    greetingElement.textContent = `HELLO, ${userName.toUpperCase()}!`;
+                } else {
+                    // Если пусто или отменено, оставляем как есть
+                    greetingElement.textContent = 'HELLO!';
+                }
+            }
+        }
+
+        // Запускаем функцию при полной загрузке страницы
+        window.onload = personalizeGreeting;
+    </script>
+
+</body>
+</html>
