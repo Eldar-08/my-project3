@@ -1,44 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minimal Portfolio Design</title>
-    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
+
 <body>
 
     <div class="page-container">
-        
+
         <header class="header">
             <div class="logo">
                 <span class="logo-a">A</span>
                 <span class="logo-k">K</span>
             </div>
-            <nav class="nav">
+            <nav class="nav" id="nav">
+                <a href="index.html">HOME</a>
                 <a href="about.html">ABOUT</a>
                 <a href="project.html">PROJECTS</a>
                 <a href="contact.html" class="contact-btn">CONTACT ME</a>
             </nav>
+            <button class="theme-switch" id="theme-switch" aria-label="Toggle theme">🌙</button>
+            <button class="hamburger" id="hamburger" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </header>
 
         <main class="main-content">
             <section class="hero">
                 <div class="text-content">
-                    <p class="greeting" id="greetingText">HELLO!</p> 
-                    <h1 class="title">I'M <span class="highlight">A.K.</span></h1> 
+                    <p class="greeting" id="greetingText">HELLO!</p>
+                    <h1 class="title">I'M <span class="highlight">A.K.</span></h1>
                     <h2 class="subtitle">UI/UX DESIGNER & FRONTEND DEVELOPER</h2>
                     <p class="description">
-                        A versatile creative professional with expertise in design, Figma and 
-                        frontend development. My passion for creativity drives me to create 
-                        visually stunning digital experiences that engage and delight users. 
+                        A versatile creative professional with expertise in design, Figma and
+                        frontend development. My passion for creativity drives me to create
+                        visually stunning digital experiences that engage and delight users.
                         Let’s collaborate and bring your ideas to life!
                     </p>
-                    <a href="#projects" class="work-btn">VIEW MY WORK</a>
+                    <a href="project.html" class="work-btn">VIEW MY WORK</a>
                 </div>
                 <div class="image-placeholder">
-                    <img src="C:\Users\user\Desktop\Eldars\sca24a-main\images\5418022908451746618.jpg" alt="Profile Photo">
+                    <img src="C:\Users\User\OneDrive\Desktop\my-project3-main\my-project3-main\images\photo_5418022908451746619_y.jpg"
+                        alt="Profile Photo">
                 </div>
             </section>
         </main>
@@ -51,20 +66,23 @@
 
     </div>
 
+    <button id="scrollToTop"
+        style="position:fixed;bottom:40px;right:40px;display:none;z-index:999;background:#00d4ff;color:#fff;border:none;border-radius:50%;width:48px;height:48px;font-size:28px;box-shadow:0 2px 8px rgba(0,0,0,0.2);cursor:pointer;">↑</button>
+
     <script>
         function personalizeGreeting() {
             const greetingElement = document.getElementById('greetingText');
-            
+
             // Запрашиваем имя пользователя каждый раз
             let inputName = prompt("Welcome! Please enter your name:");
-            
+
             let userName = '';
 
             if (inputName && inputName.trim() !== "") {
                 // Форматируем имя
                 userName = inputName.trim().charAt(0).toUpperCase() + inputName.trim().slice(1).toLowerCase();
             }
-            
+
             // Обновляем текст на странице
             if (greetingElement) {
                 if (userName) {
@@ -81,5 +99,40 @@
         window.onload = personalizeGreeting;
     </script>
 
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.getElementById('nav');
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('nav-open');
+            hamburger.classList.toggle('open');
+        });
+
+        // Theme switcher
+        const themeSwitch = document.getElementById('theme-switch');
+        themeSwitch.addEventListener('click', () => {
+            document.body.classList.toggle('light-theme');
+            if (document.body.classList.contains('light-theme')) {
+                themeSwitch.textContent = '🌞';
+            } else {
+                themeSwitch.textContent = '🌙';
+            }
+        });
+
+        // Scroll to top button
+        const scrollBtn = document.getElementById('scrollToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 45) {
+                scrollBtn.style.display = 'block';
+            } else {
+                scrollBtn.style.display = 'none';
+            }
+        });
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+
 </body>
+
 </html>

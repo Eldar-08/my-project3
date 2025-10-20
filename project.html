@@ -1,12 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="project.css">
+    <title>Projects - Minimal Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div class="page-container">
+        <header class="header">
+            <div class="logo">
+                <span class="logo-a">A</span><span class="logo-k">K</span>
+            </div>
+            <nav class="nav" id="nav">
+                <a href="index.html">HOME</a>
+                <a href="about.html">ABOUT</a>
+                <a href="project.html">PROJECTS</a>
+                <a href="contact.html" class="contact-btn">CONTACT ME</a>
+            </nav>
+            <button class="theme-switch" id="theme-switch" aria-label="Toggle theme">🌙</button>
+            <button class="hamburger" id="hamburger" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </header>
+        <main class="main-content">
+            <section class="hero">
+                <div class="text-content">
+                    <h1 class="title">My Projects</h1>
+                    <p class="description">
+                        Here are some of my featured projects. I specialize in UI/UX design and frontend development,
+                        creating modern and engaging web experiences.
+                    </p>
+                    <!-- Add your project cards or links here -->
+                </div>
+            </section>
+        </main>
+        <aside class="side-bar">
+            <a href="#" target="_blank">FIGMA</a>
+            <a href="#" target="_blank">LINKEDIN</a>
+            <a href="#" target="_blank">DISCORD</a>
+        </aside>
+        <button id="scrollToTop"
+            style="position:fixed;bottom:40px;right:40px;display:none;z-index:999;background:#00d4ff;color:#fff;border:none;border-radius:50%;width:48px;height:48px;font-size:28px;box-shadow:0 2px 8px rgba(0,0,0,0.2);cursor:pointer;">↑</button>
+    </div>
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.getElementById('nav');
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('nav-open');
+            hamburger.classList.toggle('open');
+        });
+        // Theme switcher
+        const themeSwitch = document.getElementById('theme-switch');
+        themeSwitch.addEventListener('click', () => {
+            document.body.classList.toggle('light-theme');
+            if (document.body.classList.contains('light-theme')) {
+                themeSwitch.textContent = '🌞';
+            } else {
+                themeSwitch.textContent = '🌙';
+            }
+        });
+        // Scroll to top button
+        const scrollBtn = document.getElementById('scrollToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 45) {
+                scrollBtn.style.display = 'block';
+            } else {
+                scrollBtn.style.display = 'none';
+            }
+        });
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
+
 </html>

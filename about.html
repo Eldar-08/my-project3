@@ -1,47 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio</title>
   <link rel="stylesheet" href="about.css">
-</head>
-<body>
-  <nav>
-    <div class="logo">A K</div>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="project.html">Projects</a></li>
-    </ul>
-    <a href="contact.html" class="contact-btn">Contact Me</a>
-  </nav>
-
-  <section class="about">
-    <div class="about-card">
-      <img src="C:\Users\user\Desktop\Eldars\sca24a-main\images\5377333324592317135.jpg" alt="Profile Photo" width="60%">
-      <div class="about-text">
-        <h2><span>About</span> Me</h2>
-        <h3>UI/UX Designer <br> Frontend Developer</h3>
-        <p>
-          A versatile creative professional with expertise in design, 
-          Figma and frontend development. My passion for creativity 
-          drives me to create visually stunning digital experiences that 
-          engage and delight users. Let’s collaborate and bring your 
-          ideas to life!
-        </p>
-      </div>
-    </div>
-  </section>
-  
-  <script>
-    // Функция 1: Приветственное сообщение при загрузке страницы
-    function showWelcomeAlert() {
-      alert("Welcome to my About page! Learn more about my skills.");
+  <style>
+    html {
+      scroll-behavior: smooth;
     }
+  </style>
+</head>
 
-    // Вызываем функцию, когда страница полностью загрузится
-    window.onload = showWelcomeAlert;
+<body>
+  <nav class="nav" id="nav">
+    <a href="index.html">HOME</a>
+    <a href="about.html">ABOUT</a>
+    <a href="project.html">PROJECTS</a>
+    <a href="contact.html" class="contact-btn">CONTACT ME</a>
+  </nav>
+  <button class="theme-switch" id="theme-switch" aria-label="Toggle theme">🌙</button>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <main>
+    <section class="about">
+      <div class="about-card">
+        <img
+          src="C:\Users\User\OneDrive\Desktop\my-project3-main\my-project3-main\images\photo_5438276492455964983_y.jpg"
+          alt="Profile Photo">
+        <div class="about-text">
+          <h2><span>About</span> Me</h2>
+          <h3>UI/UX DESIGNER<br>FRONTEND DEVELOPER</h3>
+          <p>
+            A versatile creative professional with expertise in design, Figma and frontend development. My passion for
+            creativity drives me to create visually stunning digital experiences that engage and delight users. Let’s
+            collaborate and bring your ideas to life!
+          </p>
+          <a href="#" class="see-more">See more</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <aside class="side-bar">
+    <a href="#" target="_blank">FIGMA</a>
+    <a href="#" target="_blank">LINKEDIN</a>
+    <a href="#" target="_blank">DISCORD</a>
+  </aside>
+  <button id="scrollToTop"
+    style="position:fixed;bottom:40px;right:40px;display:none;z-index:999;background:#00d4ff;color:#fff;border:none;border-radius:50%;width:48px;height:48px;font-size:28px;box-shadow:0 2px 8px rgba(0,0,0,0.2);cursor:pointer;">↑</button>
+  <script>
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('nav');
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('nav-open');
+      hamburger.classList.toggle('open');
+    });
+
+    // Theme switcher
+    const themeSwitch = document.getElementById('theme-switch');
+    themeSwitch.addEventListener('click', () => {
+      document.body.classList.toggle('light-theme');
+      if (document.body.classList.contains('light-theme')) {
+        themeSwitch.textContent = '🌞';
+      } else {
+        themeSwitch.textContent = '🌙';
+      }
+    });
+
+    // Scroll to top button
+    const scrollBtn = document.getElementById('scrollToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        scrollBtn.style.display = 'block';
+      } else {
+        scrollBtn.style.display = 'none';
+      }
+    });
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   </script>
 </body>
+
 </html>

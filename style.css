@@ -5,6 +5,91 @@
     box-sizing: border-box;
 }
 
+/* Light theme styles */
+.light-theme {
+    background: #f5f7fa;
+    color: #222;
+}
+
+.light-theme .page-container {
+    border-color: #b3c2e0;
+    background: #fff;
+}
+
+.light-theme .header {
+    background: #fff;
+}
+
+.light-theme .logo-a {
+    color: #222;
+}
+
+.light-theme .logo-k {
+    color: #0077ff;
+}
+
+.light-theme .nav a {
+    color: #222;
+}
+
+.light-theme .nav a:hover {
+    color: #0077ff;
+}
+
+.light-theme .contact-btn {
+    border-color: #0077ff;
+    color: #0077ff;
+}
+
+.light-theme .contact-btn:hover {
+    background: #0077ff;
+    color: #fff;
+}
+
+.light-theme .greeting {
+    color: #0077ff;
+}
+
+.light-theme .title {
+    color: #222;
+}
+
+.light-theme .highlight {
+    color: #0077ff;
+}
+
+.light-theme .subtitle {
+    color: #555;
+}
+
+.light-theme .description {
+    color: #666;
+}
+
+.light-theme .work-btn {
+    background: #0077ff;
+    color: #fff;
+}
+
+.light-theme .work-btn:hover {
+    background: #005bb5;
+    color: #fff;
+}
+
+.light-theme .image-placeholder {
+    border-color: #b3c2e0;
+    box-shadow: 0 0 40px rgba(0, 119, 255, 0.2);
+}
+
+.light-theme .side-bar a {
+    color: #888;
+}
+
+.light-theme .side-bar a:hover {
+    color: #0077ff;
+}
+
+
 body {
     /* Фон и шрифты, похожие на дизайн */
     background: #000;
@@ -14,7 +99,8 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    overflow-x: hidden; /* Предотвращаем горизонтальный скролл */
+    overflow-x: hidden;
+    /* Предотвращаем горизонтальный скролл */
 }
 
 /* Основной контейнер, имитирующий границы дизайна */
@@ -23,7 +109,7 @@ body {
     max-width: 1440px;
     min-height: 750px;
     /* Граница из вашего contact.css */
-    border: 2px solid #0b1f49; 
+    border: 2px solid #0b1f49;
     position: relative;
     padding: 30px 40px;
     display: flex;
@@ -38,7 +124,96 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 20px; /* Отступ от контента */
+    padding-bottom: 20px;
+    /* Отступ от контента */
+    position: relative;
+}
+
+.theme-switch {
+    background: none;
+    border: none;
+    color: #00d4ff;
+    font-size: 24px;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.theme-switch:hover {
+    color: #fff;
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 20px;
+    z-index: 100;
+}
+
+.hamburger span {
+    display: block;
+    width: 28px;
+    height: 4px;
+    background: #00d4ff;
+    margin: 4px 0;
+    border-radius: 2px;
+    transition: 0.4s;
+}
+
+.hamburger.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+@media (max-width: 800px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav {
+        position: absolute;
+        top: 60px;
+        right: 30px;
+        background: #0b1f49;
+        flex-direction: column;
+        gap: 0;
+        width: 200px;
+        border-radius: 10px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        padding: 20px 0;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+    }
+
+    .nav.nav-open {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .nav a {
+        padding: 12px 30px;
+        border-bottom: 1px solid #222;
+        font-size: 18px;
+    }
+
+    .contact-btn {
+        margin: 10px 30px;
+    }
 }
 
 .logo {
@@ -51,14 +226,45 @@ body {
 }
 
 .logo-k {
-    color: #00d4ff; /* Акцентный цвет */
+    color: #00d4ff;
+    /* Акцентный цвет */
 }
 
 .nav {
-    display: flex;
-    gap: 30px;
-    align-items: center;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 30px;
+    background: #0b1f49;
+    gap: 0;
+    width: 220px;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    padding: 20px 0;
+    z-index: 99;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
 }
+
+.nav.nav-open {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.nav a {
+    padding: 12px 30px;
+    border-bottom: 1px solid #222;
+    font-size: 18px;
+    color: #fff;
+}
+
+.contact-btn {
+    margin: 10px 30px;
+}
+
 
 .nav a {
     text-decoration: none;
@@ -91,10 +297,13 @@ body {
 /* ==================================== */
 
 .main-content {
-    flex-grow: 1; /* Занимает доступное пространство */
+    flex-grow: 1;
+    /* Занимает доступное пространство */
     display: flex;
-    align-items: center; /* Выравнивание по центру по вертикали */
-    padding-left: 100px; /* Отступ от боковой полосы */
+    align-items: center;
+    /* Выравнивание по центру по вертикали */
+    padding-left: 100px;
+    /* Отступ от боковой полосы */
 }
 
 .hero {
@@ -113,11 +322,13 @@ body {
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 10px;
-    color: #00d4ff; /* Акцентный цвет */
+    color: #00d4ff;
+    /* Акцентный цвет */
 }
 
 .title {
-    font-size: 72px; /* Очень крупный заголовок */
+    font-size: 72px;
+    /* Очень крупный заголовок */
     font-weight: 900;
     margin-bottom: 20px;
     line-height: 1;
@@ -160,12 +371,17 @@ body {
 
 /* Изображение */
 .image-placeholder {
-    width: 300px; /* Ширина вашего фото */
-    height: 300px; /* Высота вашего фото */
-    border-radius: 50%; /* Круглое изображение */
+    width: 300px;
+    /* Ширина вашего фото */
+    height: 300px;
+    /* Высота вашего фото */
+    border-radius: 50%;
+    /* Круглое изображение */
     overflow: hidden;
-    border: 5px solid #0b1f49; /* Рамка */
-    box-shadow: 0 0 40px rgba(0, 212, 255, 0.3); /* Свечение */
+    border: 5px solid #0b1f49;
+    /* Рамка */
+    box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
+    /* Свечение */
     position: relative;
 }
 
@@ -182,7 +398,8 @@ body {
 
 .side-bar {
     position: absolute;
-    left: 40px; /* Отступ слева от контейнера */
+    left: 40px;
+    /* Отступ слева от контейнера */
     top: 50%;
     transform: translateY(-50%);
     display: flex;
@@ -191,7 +408,8 @@ body {
 }
 
 .side-bar a {
-    writing-mode: vertical-rl; /* Вертикальный текст */
+    writing-mode: vertical-rl;
+    /* Вертикальный текст */
     text-orientation: mixed;
     text-decoration: none;
     color: #999;
@@ -212,7 +430,7 @@ body {
     .main-content {
         padding-left: 40px;
     }
-    
+
     .hero {
         flex-direction: column;
         text-align: center;
@@ -220,13 +438,14 @@ body {
     }
 
     .side-bar {
-        display: none; /* Скрываем боковую панель на маленьких экранах */
+        display: none;
+        /* Скрываем боковую панель на маленьких экранах */
     }
-    
+
     .title {
         font-size: 56px;
     }
-    
+
     .subtitle {
         font-size: 20px;
     }
@@ -241,21 +460,45 @@ body {
     .nav {
         gap: 15px;
     }
-    
+
     .main-content {
         padding: 20px;
     }
-    
+
     .title {
         font-size: 40px;
     }
-    
+
     .image-placeholder {
         width: 200px;
         height: 200px;
     }
-    
+
     .contact-btn {
-        display: none; /* Можно скрыть кнопку для экономии места */
+        display: none;
+        /* Можно скрыть кнопку для экономии места */
     }
+}
+
+.scroll-top {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #0b66ff;
+    color: white;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .25s ease, transform .25s ease;
+}
+
+.scroll-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+html {
+    scroll-behavior: smooth;
 }
